@@ -11,9 +11,9 @@
     <title>Login</title>
 </head>
 <body>
-<form action="Logowanie" method="post">
-    Login: <input type="text" name="text_login" width="25">
-    Password: <input type="password" name="text_password" width="25">
+<form action="Login" method="post">
+    Login: <input type="text" name="username" width="25">
+    Password: <input type="password" name="password" width="25">
     <input type="submit" value="Sign In">
 </form>
 </body>
