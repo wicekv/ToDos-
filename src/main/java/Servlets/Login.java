@@ -1,6 +1,7 @@
 package Servlets;
 
 import Authorization.User;
+import DataBase.DBConnection;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,42 +21,17 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        try {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-            String name = request.getParameter("username");
-            String password = request.getParameter("password");
-            String dbName = null;
-            String dbPassword = null;
-            String sql = "SELECT * FROM users WHERE name=? and password=?";
-            String url = "jdbc:mysql://localhost/webcoin";
-
-            Properties properties = new Properties();
-            properties.setProperty("user", "root");
-            properties.setProperty("password", "");
-
-            Connection connection = DriverManager.getConnection(url,properties);
-
-            System.out.println("Połączono z bazą danych WebCoin");
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, password);
-            ResultSet resultSet = ps.executeQuery();
-
-
-            while(resultSet.next()){
-                dbName = resultSet.getString(2);
-                dbPassword = resultSet.getString("password");
-            }
-            if(name.equals(dbName) && password.equals(dbPassword)){
-                PrintWriter out = response.getWriter();
-                out.println("Succesfully sign in");
-            }else{
-                RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-                rd.include(request, response);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       if(User.isAuth(username, password)){
+           HttpSession session = request.getSession();
+           session.setAttribute("username", username);
+           request.getRequestDispatcher("homePage.jsp").forward(request, response);
+       }else
+       {
+           request.setAttribute("blad", "Niepoprawne dane logowania!");
+           request.getRequestDispatcher("Login.jsp").forward(request,response);
+       }
     }
 }

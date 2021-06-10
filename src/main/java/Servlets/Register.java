@@ -1,5 +1,7 @@
 package Servlets;
 
+import DataBase.DBConnection;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -24,29 +26,22 @@ public class Register extends HttpServlet {
             String name = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String sql = "insert into users(name,email,password) values(?,?,?)";
 
-            String url = "jdbc:mysql://localhost/webcoin";
-
-            Properties properties = new Properties();
-            properties.setProperty("user","root");
-            properties.setProperty("password","");
+             String sql = "INSERT INTO users(name,email,password) "+
+                "VALUES('" + name + "','" + email + "','" + password + "')";
 
             try{
-                Connection connection = DriverManager.getConnection(url,properties);
-                System.out.println("Połączono z bazą danych WebCoin");
-                PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setString(1, name);
-                ps.setString(2, email);
-                ps.setString(3, password);
-                ps.executeUpdate();
-                PrintWriter out = response.getWriter();
-                out.println("Succesfully registered");
-
-            }catch (SQLException e){
-                e.printStackTrace();
+                Connection connection = DBConnection.getConnectionDB();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
 
+            try {
+                    DBConnection.executeDML(sql);
+                    request.getRequestDispatcher("Register.jsp").forward(request, response);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+            }
     }
 }
 
