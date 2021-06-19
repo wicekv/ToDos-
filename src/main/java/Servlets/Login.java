@@ -27,6 +27,7 @@ public class Login extends HttpServlet {
        if(User.isAuth(username, password)){
            HttpSession session = request.getSession();
            session.setAttribute("username", username);
+           session.setAttribute("user_id", User.getUserId(username,password));
            request.getRequestDispatcher("homePage.jsp").forward(request, response);
        }else
        {

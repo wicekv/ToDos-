@@ -19,9 +19,8 @@ public class addTodos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String title = request.getParameter("");
-        String description = request.getParameter("");
-        String is_done = request.getParameter("");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
 
 
         try {
@@ -29,9 +28,18 @@ public class addTodos extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-//        String sql =
-//                "INSERT INTO todos(title, description, is_done) " +
-//                        "VALUES('" + title + "','" + description + "','" + is_done + "');
+        String sql =
+                "INSERT INTO todos(title, description, is_done, user_id) " +
+                        "VALUES('" + title + "','" + description + "','" + 0 + "','" + request.getSession(false).getAttribute("user_id") + "')";
+
+        try {
+            DBConnection.executeDML(sql);
+            request.getRequestDispatcher("homePage.jsp").forward(request, response);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
 
     }
 }
