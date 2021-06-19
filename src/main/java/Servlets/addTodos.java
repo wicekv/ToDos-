@@ -30,7 +30,8 @@ public class addTodos extends HttpServlet {
         }
         String sql =
                 "INSERT INTO todos(title, description, is_done, user_id) " +
-                        "VALUES('" + title + "','" + description + "','" + 0 + "','" + request.getSession(false).getAttribute("user_id") + "')";
+                        "VALUES('" + title + "','" + description + "','" + 0 + "','"
+                        + request.getSession(false).getAttribute("user_id") + "')";
 
         try {
             DBConnection.executeDML(sql);

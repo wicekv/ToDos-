@@ -24,7 +24,7 @@
 <div class="main">
     <ul>
         <li><a href="addTodos.jsp">Dodaj notatke</a></li>
-        <li><a href="addTodos.jsp">Lista notatek</a></li>
+        <li><a href="showTodos.jsp">Lista notatek</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
     <img src="assets/coin.jpg" alt="" class="background_image">
