@@ -1,3 +1,4 @@
+<%@ page import="Objects.WebCoin" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,9 @@
             <button class="=btn btn-light">Dołącz do nas</button>
         </div>
     </div>
-
+<%
+    WebCoin.doTheThing();
+%>
 </div>
 </body>
 </html>
