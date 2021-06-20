@@ -56,8 +56,15 @@
                 </td>
                 <td>
                     <form action="deleteTodo" method="post">
-                        <input type="hidden" id="id" name="id" value=<%=resultSet.getString("id") %>>
+                        <input type="hidden" name="id" value=<%=resultSet.getString("id") %>>
                         <input type="submit" value="Usuń">
+                    </form>
+                </td>
+                <td>
+                    <form action="changeStatusTodo" method="post">
+                        <input type="hidden" name="id" value=<%=resultSet.getString("id") %>>
+                        <input type="hidden" name="is_done" value=<%=resultSet.getString("is_done") %>>
+                        <input type="submit" value="Zmień status">
                     </form>
                 </td>
             </tr>
