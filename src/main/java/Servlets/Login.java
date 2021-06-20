@@ -23,10 +23,22 @@ public class Login extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
+        String email = null;
        if(User.isAuth(username, password)){
            HttpSession session = request.getSession();
            session.setAttribute("username", username);
+
+           String sql = "SELECT users.email, users.name FROM users WHERE users.name=\"" + username + "\"";
+           try {
+               DBConnection.getConnectionDB();
+               ResultSet rs = DBConnection.getData(sql);
+               rs.first();
+               email = rs.getString("email");
+               session.setAttribute("email", email);
+           } catch (SQLException throwables) {
+               throwables.printStackTrace();
+           }
+
            session.setAttribute("user_id", User.getUserId(username,password));
            request.getRequestDispatcher("homePage.jsp").forward(request, response);
        }else

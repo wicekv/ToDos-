@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Dodaj notatke</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="addTodos.css">
+    <link rel="stylesheet" href="stylee/style.css">
+    <link rel="stylesheet" href="stylee/addTodos.css">
 </head>
 <body>
 <%
@@ -23,6 +23,7 @@
 <div class="main">
     <ul>
         <li><a href="addTodos.jsp">Dodaj notatke</a></li>
+        <li style="float:right"><a href="profil.jsp">Profil uzytkownika</a></li>
         <li><a href="showTodos.jsp">Lista notatek</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
