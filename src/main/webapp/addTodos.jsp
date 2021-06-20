@@ -27,7 +27,7 @@
         <li><a href="showTodos.jsp">Lista notatek</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
-    <img src="assets/coin.jpg" alt="" class="background_image">
+    <img src="assets/img.png" alt="" class="background_image">
 
     <div class="add_form">
         <form action="addTodos" method="post">

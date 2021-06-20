@@ -20,7 +20,7 @@
     <li style="float:right"><a  href="Login.jsp">Logowanie</a></li>
     <li style="float:right"><a  href="Register.jsp">Rejestracja</a></li>
 </ul>
-<img src="assets/coin.jpg" alt="" class="background_image">
+    <img src="assets/img.png" alt="" class="background_image">
     <div class="register_form">
     <form action="Register" method="post">
         <label for="login">Nazwa użytkownika</label>
@@ -38,8 +38,7 @@
         <input type="submit" value="Zarejestruj">
     </form>
     <div class="column_nav">
-        <a class="register">Zaloguj się</a>
-        <a class="forgot_password">Przypomnij hasło</a>
+        <a href="Login.jsp" class="register">Zaloguj się</a>
     </div>
 </div>
 </div>

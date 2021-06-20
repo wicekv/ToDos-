@@ -22,12 +22,12 @@
 <div class="main">
     <ul>
         <li><a href="addTodos.jsp">Dodaj notatke</a></li>
-        <li><a href="addTodos.jsp">Lista notatek</a></li>
+        <li><a href="showTodos.jsp">Lista notatek</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
         <li style="float:right"><a href="profil.jsp">Profil uzytkownika</a></li>
 
     </ul>
-    <img src="assets/coin.jpg" alt="" class="background_image">
+    <img src="assets/img.png" alt="" class="background_image">
 
     <div class="profil_form">
         <form action="profilUser" method="post">
@@ -38,7 +38,7 @@
             <label for="email">Zmień Email</label>
             <input type="text" id="email" name="email" value="${email}">
             <div class="form_border"></div>
-            <input type="submit" value="Zmien Dane">
+            <input type="submit" value="Zmien Email">
         </form>
     </div>
 
