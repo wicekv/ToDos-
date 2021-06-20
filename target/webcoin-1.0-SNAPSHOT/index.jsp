@@ -19,9 +19,9 @@
         <div class="inner">
 
             <h1>Dodaj swoją Notatke</h1>
-            <p>pamiętaj razem z nami</p>
+            <p>pamiętaj o obowiązkach razem z nami</p>
 
-            <button class="=btn btn-light">Dołącz do nas</button>
+            <button onClick="window.location.href='Register.jsp'" class="=btn btn-light">Dołącz do nas</button>
         </div>
     </div>
 </div>
