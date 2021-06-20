@@ -10,7 +10,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Pokaż notatki</title>
+    <link rel="stylesheet" href="stylee/style.css">
+
 </head>
 <body>
 <%
@@ -26,47 +28,49 @@
     </ul>
     <img src="assets/coin.jpg" alt="" class="background_image">
 
-    <%
-        try {
-            String sql = "SELECT * FROM todos WHERE user_id = " + request.getSession(false).getAttribute("user_id");
-            Connection connection = DBConnection.getConnectionDB();
-            ResultSet resultSet = DBConnection.getData(sql);
-    %>
-    <table border=1 style="text-align:center">
-        <thead>
-        <tr>
-            <th>Tytuł</th>
-            <th>Opis</th>
-
-        </tr>
-        </thead>
-        <tbody>
+    <div style="background-color: white">
         <%
-            while (resultSet.next()) {
+            try {
+                String sql = "SELECT * FROM todos WHERE user_id = " + request.getSession(false).getAttribute("user_id");
+                Connection connection = DBConnection.getConnectionDB();
+                ResultSet resultSet = DBConnection.getData(sql);
         %>
-        <tr>
-            <td><%=resultSet.getString("title") %>
-            </td>
-            <td><%=resultSet.getString("description") %>
-            </td>
-            <td><%=resultSet.getString("is_done") %>
-            </td>
-            <td>
-                <form action="deleteTodo" method="post">
-                    <input type="hidden" id="id" name="id" value=<%=resultSet.getString("id") %>>
-                    <input type="submit" value="Usuń">
-                </form>
-            </td>
-        </tr>
-        <%}%>
-        </tbody>
-    </table>
-    <br>
-    <%
-    } catch (Exception e) {
-        e.printStackTrace();
-    %><br><%
-    }%>
+        <table border=1 style="text-align:center">
+            <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Opis</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                while (resultSet.next()) {
+            %>
+            <tr>
+                <td><%=resultSet.getString("title") %>
+                </td>
+                <td><%=resultSet.getString("description") %>
+                </td>
+                <td><%=resultSet.getString("is_done") %>
+                </td>
+                <td>
+                    <form action="deleteTodo" method="post">
+                        <input type="hidden" id="id" name="id" value=<%=resultSet.getString("id") %>>
+                        <input type="submit" value="Usuń">
+                    </form>
+                </td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+        <br>
+        <%
+        } catch (Exception e) {
+            e.printStackTrace();
+        %><br><%
+        }%>
+    </div>
 </div>
 </body>
 </html>

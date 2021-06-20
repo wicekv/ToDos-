@@ -17,6 +17,7 @@ public class deleteAccount extends HttpServlet {
 
 
         String name = (String) request.getSession().getAttribute("username");
+        String userId = (String) request.getSession().getAttribute("user_id");
 
         try {
             Connection connection = DBConnection.getConnectionDB();
@@ -24,16 +25,14 @@ public class deleteAccount extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        String sql = "DELETE FROM users WHERE users.name=\""+name + "\"";
-        //String sql2 = "DELETE FROM todos WHERE todos.user_id = \""
+        String sqlDelUser = "DELETE FROM users WHERE users.name=\""+name + "\"";
+        String sqlDelUsersTodos = "DELETE FROM todos WHERE user_id=" + userId;
 
         try {
-            DBConnection.executeDML(sql);
-            System.out.println(sql);
+            DBConnection.executeDML(sqlDelUsersTodos);
+            DBConnection.executeDML(sqlDelUser);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (SQLException throwables) {
-            System.err.println("Błąd polecenia " + sql);
-
             throwables.printStackTrace();
         }
     }
