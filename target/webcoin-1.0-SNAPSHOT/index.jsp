@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Strona główna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylee/style.css">
 
 </head>
 <body>

@@ -23,20 +23,21 @@
 <div class="main">
     <ul>
         <li><a href="addTodos.jsp">Dodaj notatke</a></li>
-        <li><a href="addTodos.jsp">Lista notatek</a></li>
+        <li style="float:right"><a href="profil.jsp">Profil uzytkownika</a></li>
+        <li><a href="showTodos.jsp">Lista notatek</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
     <img src="assets/coin.jpg" alt="" class="background_image">
 
     <div class="add_form">
-        <form action="Login" method="post">
+        <form action="addTodos" method="post">
 
-            <label for="login">Tytuł notatki</label>
-            <input type="text" id="login" name="username">
+            <label for="title">Tytuł notatki</label>
+            <input type="text" id="title" name="title">
             <div class="form_border"></div>
 
-            <label for="password">Opis notatki</label>
-            <input type="password" id="password" name="password">
+            <label for="description">Opis notatki</label>
+            <input type="text" id="description" name="description">
 
             <div class="form_border"></div>
             <input type="submit" value="Dodaj notatke">

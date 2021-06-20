@@ -25,6 +25,7 @@ public class deleteAccount extends HttpServlet {
         }
 
         String sql = "DELETE FROM users WHERE users.name=\""+name + "\"";
+        //String sql2 = "DELETE FROM todos WHERE todos.user_id = \""
 
         try {
             DBConnection.executeDML(sql);
