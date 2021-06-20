@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="stylee/style.css">
+    <link rel="stylesheet" href="stylee/login.css">
 </head>
 <body>
 <div class="main">
@@ -27,9 +27,11 @@
             <label for="login">LOGIN</label>
             <input type="text" id="login" name="username">
             <div class="form_border"></div>
+
             <label for="password">HASŁO</label>
             <input type="password" id="password" name="password">
             <div class="form_border"></div>
+
             <input type="submit" value="Zaloguj">
         </form>
         <div class="column_nav">

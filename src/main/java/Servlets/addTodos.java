@@ -29,9 +29,9 @@ public class addTodos extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-//        String sql =
-//                "INSERT INTO todos(title, description, is_done) " +
-//                        "VALUES('" + title + "','" + description + "','" + is_done + "');
+        String sql =
+                "INSERT INTO todos(title, description, is_done) " +
+                        "VALUES('" + title + "','" + description + "','" + is_done + "')";
 
     }
 }

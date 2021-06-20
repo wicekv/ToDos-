@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Strona główna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylee/style.css">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
         <li style="float:right"><a  href="Login.jsp">Logowanie</a></li>
         <li style="float:right"><a  href="Register.jsp">Rejestracja</a></li>
     </ul>
-    <img src="assets/coin.jpg" alt="" class="background_image">
+    <img src="assets/todos.jpg" alt="" class="background_image">
 
     <div class="container">
         <div class="inner">

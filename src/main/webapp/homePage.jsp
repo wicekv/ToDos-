@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Strona główna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylee/style.css">
 </head>
 <body>
 <%
@@ -25,6 +25,7 @@
     <ul>
         <li><a href="addTodos.jsp">Dodaj notatke</a></li>
         <li><a href="addTodos.jsp">Lista notatek</a></li>
+        <li style="float:right"><a href="profil.jsp">Profil uzytkownika</a></li>
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
     <img src="assets/coin.jpg" alt="" class="background_image">

@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="stylee/style.css">
+    <link rel="stylesheet" href="stylee/register.css">
     <title>Registration</title>
 </head>
 <body>
