@@ -25,8 +25,6 @@
         <li style="float:right"><a href="Logout">Wyloguj</a></li>
     </ul>
     <img src="assets/coin.jpg" alt="" class="background_image">
-</div>
-
 
     <%
         try {
@@ -39,7 +37,7 @@
         <tr>
             <th>Tytuł</th>
             <th>Opis</th>
-            <th></th>
+
         </tr>
         </thead>
         <tbody>
@@ -53,6 +51,12 @@
             </td>
             <td><%=resultSet.getString("is_done") %>
             </td>
+            <td>
+                <form action="deleteTodo" method="post">
+                    <input type="hidden" id="id" name="id" value=<%=resultSet.getString("id") %>>
+                    <input type="submit" value="Usuń">
+                </form>
+            </td>
         </tr>
         <%}%>
         </tbody>
@@ -63,5 +67,6 @@
         e.printStackTrace();
     %><br><%
     }%>
+</div>
 </body>
 </html>

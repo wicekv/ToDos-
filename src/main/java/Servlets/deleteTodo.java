@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@WebServlet(name = "addTodos", value = "/addTodos")
-public class addTodos extends HttpServlet {
+@WebServlet(name = "deleteTodo", value = "/deleteTodo")
+public class deleteTodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -18,14 +18,8 @@ public class addTodos extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        String sql =
-                "INSERT INTO todos(title, description, is_done, user_id) " +
-                        "VALUES('" + title + "','" + description + "','" + 0 + "','"
-                        + request.getSession(false).getAttribute("user_id") + "')";
-
+        String id = request.getParameter("id");
+        String sql = "DELETE FROM todos WHERE id=" + id;
         try {
             Connection connection = DBConnection.getConnectionDB();
         } catch (SQLException throwables) {
@@ -34,7 +28,7 @@ public class addTodos extends HttpServlet {
 
         try {
             DBConnection.executeDML(sql);
-            request.getRequestDispatcher("homePage.jsp").forward(request, response);
+            request.getRequestDispatcher("showTodos.jsp").forward(request, response);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
